@@ -4,7 +4,7 @@ This app will open the selected PDF-file, sort the pages into notebooks (blocks 
 
 > ***Note! At the moment the application cannot print the file from the "box".***
 
-### Usage
+### *Usage*
 Before launching the application, download the book from any resource in PDF format. 
 Let's launch the application by double-clicking on *EasyBookPrinter.exe*. We are greeted by the main window. 
 
