@@ -7,7 +7,7 @@ This app will open the selected PDF-file, sort the pages into notebooks (blocks 
 ## Features 
 - Add implementation of sending a file for printing
 
-### Installation
+## Installation
 > ***Not done yet=)***
 
 ## Usage
