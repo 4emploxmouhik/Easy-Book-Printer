@@ -1,4 +1,4 @@
-# ![EasyBookPrinter-Icon](/EasyBookPrinter/Resources/book-32x32.png)Easy book printer
+# ![EasyBookPrinter-Icon](/EasyBookPrinter/Resources/book-32x32.png) Easy book printer
 EasyBookPrinter - is a small desktop solution that allows you to easily print a file in book format.
 This app will open the selected PDF-file, sort the pages into notebooks (blocks of pages), prepare a temporary print file that can be saved separately, and print it.
 
