@@ -4,13 +4,7 @@ This app will open the selected PDF-file, sort the pages into notebooks (blocks 
 
 > ***Note! At the moment the application cannot print the file from the "box".***
 
-## Features 
-- Add implementation of sending a file for printing
-
-## Installation
-> ***Not done yet=)***
-
-## Usage
+### Usage
 Before launching the application, download the book from any resource in PDF format. 
 Let's launch the application by double-clicking on *EasyBookPrinter.exe*. We are greeted by the main window. 
 
@@ -21,6 +15,12 @@ First, indicate the location of the downloaded book file `1` or select its from 
 > ***Note! If the number of pages in the source file does not correspond to the specified partitioning parameters, then the number of pages in the last notebook (block of pages) will be different.***
 
 In the information field `5` you can view the composition of the pages in each notebook (block of pages), the order of sorting and printing, as well as other information. By clicking on the button `6`, we will save a printed version of the book file, which we will open in any PDF browser and print in two passes according to the instructions, which can be viewed in the information field `5`.
+
+## Features 
+- Add implementation of sending a file for printing
+
+## Installation
+> ***Not done yet=)***
 
 ## Tech 
 - C# 
