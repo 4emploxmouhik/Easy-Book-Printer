@@ -12,7 +12,7 @@ This app will open the selected PDF-file, sort the pages into notebooks (blocks 
 
 ## Usage
 Before launching the application, download the book from any resource in PDF format. 
-Let's launch the application by double-clicking on . We are greeted by the main window. 
+Let's launch the application by double-clicking on EasyBookPrinter.exe. We are greeted by the main window. 
 
 ![EasyBookPrinter-MainForm-Scrennshoot](/EasyBookPrinter/Resources/EasyBookPrinter-MainForm-Scrennshoot.png)
 
