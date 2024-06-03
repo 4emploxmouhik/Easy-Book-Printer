@@ -136,7 +136,7 @@ namespace EasyBookPrinter.Core
                     }
                     else
                     {
-                        block = GetSortedBlockOfPages(blockPeriod.From, blockPeriod.To, numberOfPagesLeft / 4);
+                        block = GetSortedBlockOfPages(blockPeriod.From, emptyPageNumbers.Last(), numberOfPagesLeft / 4);
                     }
 
                     if (emptyPageNumbers.Any())
@@ -232,7 +232,7 @@ namespace EasyBookPrinter.Core
 
             foreach (var pageNum in GetPrintOrder().Pull())
             {
-                PdfPage page = _bookFile.Pages[pageNum - 1];
+                PdfPage page = (pageNum != BlockOfPages.ValueOfEmptyPage) ? _bookFile.Pages[pageNum - 1] : new PdfPage();
                 page.Orientation = PageOrientation.Landscape;
 
                 tempFile.AddPage(page);
