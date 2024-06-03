@@ -136,7 +136,9 @@ namespace EasyBookPrinter.Core
                     }
                     else
                     {
-                        block = GetSortedBlockOfPages(blockPeriod.From, emptyPageNumbers.Last(), numberOfPagesLeft / 4);
+                        int to = emptyPageNumbers.Any() ? emptyPageNumbers.Last() : blockPeriod.To;
+
+                        block = GetSortedBlockOfPages(blockPeriod.From, to, numberOfPagesLeft / 4);
                     }
 
                     if (emptyPageNumbers.Any())
