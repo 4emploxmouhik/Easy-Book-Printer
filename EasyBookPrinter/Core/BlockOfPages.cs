@@ -59,14 +59,14 @@
         }
 
         public bool Push(int page, SheetSide side)
-        {          
+        {
             int index = (side == SheetSide.Top) ? 0 : PagesOnSideCount;
 
             while (_pages[index] != ValueOfEmptyPage)
             {
                 index++;
 
-                if (index == _pages.Length)
+                if (index == _pages.Length || (index == PagesOnSideCount && side == SheetSide.Top))
                 {
                     return false;
                 }
@@ -87,6 +87,23 @@
             {
                 _pages[i] = (i < topSide.Length) ? topSide[i] : ValueOfEmptyPage;
                 _pages[j] = (i < bottomSide.Length) ? bottomSide[i] : ValueOfEmptyPage;
+            }
+
+            return true;
+        }
+
+        public bool Push(int[] pages, SheetSide side)
+        {
+            if (pages.Length > PagesOnSideCount)
+            {
+                return false;
+            }
+
+            int index = (side == SheetSide.Top) ? 0 : PagesOnSideCount;
+
+            for (int i = 0; i < PagesOnSideCount; i++)
+            {
+                _pages[index++] = (i < pages.Length) ? pages[i] : ValueOfEmptyPage;
             }
 
             return true;

@@ -26,9 +26,9 @@ namespace EasyBookPrinter.Core.Tests
             BlockOfPages b2 = new BlockOfPages(paperCountByBlock);
             BlockOfPages b3 = new BlockOfPages(paperCountByBlock);
 
-            b1.Push([12, 1, 10, 3, 8, 5], [6, 7, 4, 9, 2, 11]);
-            b2.Push([24, 13, 22, 15, 20, 17], [18, 19, 16, 21, 14, 23]);
-            b3.Push([36, 25, 34, 27, 32, 29], [30, 31, 28, 33, 26, 35]);
+            b1.Push([12, 1, 10, 3, 8, 5], [2, 11, 4, 9, 6, 7]);
+            b2.Push([24, 13, 22, 15, 20, 17], [14, 23, 16, 21, 18, 19]);
+            b3.Push([36, 25, 34, 27, 32, 29], [26, 35, 28, 33, 30, 31]);
 
             List<BlockOfPages> expectedBlocks = new List<BlockOfPages>();
             expectedBlocks.AddRange([b1, b2, b3]);
@@ -62,8 +62,8 @@ namespace EasyBookPrinter.Core.Tests
             BlockOfPages b1 = new BlockOfPages(paperCountByBlock);
             BlockOfPages b2 = new BlockOfPages(paperCountByBlock + 1);
 
-            b1.Push([16, 1, 14, 3, 12, 5, 10, 7], [8, 9, 6, 11, 4, 13, 2, 15]);
-            b2.Push([36, 17, 34, 19, 32, 21, 30, 23, 28, 25], [26, 27, 24, 29, 22, 31, 20, 33, 18, 35]);
+            b1.Push([16, 1, 14, 3, 12, 5, 10, 7], [2, 15, 4, 13, 6, 11, 8, 9]);
+            b2.Push([36, 17, 34, 19, 32, 21, 30, 23, 28, 25], [18, 35, 20, 33, 22, 31, 24, 29, 26, 27]);
 
             List<BlockOfPages> expectedBlocks = new List<BlockOfPages>();
             expectedBlocks.AddRange([b1, b2]);
@@ -99,9 +99,9 @@ namespace EasyBookPrinter.Core.Tests
             BlockOfPages b2 = new BlockOfPages(paperCountByBlock);
             BlockOfPages b3 = new BlockOfPages(paperCountByBlock + 1);
 
-            b1.Push([12, 1, 10, 3, 8, 5], [6, 7, 4, 9, 2, 11]);
-            b2.Push([24, 13, 22, 15, 20, 17], [18, 19, 16, 21, 14, 23]);
-            b3.Push([-1, 25, -1, 27, 36, 29, 34, 31], [32, 33, 30, 35, 28, 37, 26, -1]);
+            b1.Push([12, 1, 10, 3, 8, 5], [2, 11, 4, 9, 6, 7]);
+            b2.Push([24, 13, 22, 15, 20, 17], [14, 23, 16, 21, 18, 19]);
+            b3.Push([-1, 25, -1, 27, 36, 29, 34, 31], [26, -1, 28, 37, 30, 35, 32, 33]);
 
             List<BlockOfPages> expectedBlocks = new List<BlockOfPages>();
             expectedBlocks.AddRange([b1, b2, b3]);
@@ -137,9 +137,9 @@ namespace EasyBookPrinter.Core.Tests
             BlockOfPages b2 = new BlockOfPages(paperCountByBlock);
             BlockOfPages b3 = new BlockOfPages(paperCountByBlock - 1);
 
-            b1.Push([16, 1, 14, 3, 12, 5, 10, 7], [8, 9, 6, 11, 4, 13, 2, 15]);
-            b2.Push([32, 17, 30, 19, 28, 21, 26, 23], [24, 25, 22, 27, 20, 29, 18, 31]);
-            b3.Push([44, 33, 42, 35, 40, 37], [38, 39, 36, 41, 34, 43]);
+            b1.Push([16, 1, 14, 3, 12, 5, 10, 7], [2, 15, 4, 13, 6, 11, 8, 9]);
+            b2.Push([32, 17, 30, 19, 28, 21, 26, 23], [18, 31, 20, 29, 22, 27, 24, 25]);
+            b3.Push([44, 33, 42, 35, 40, 37], [34, 43, 36, 41, 38, 39]);
 
             List<BlockOfPages> expectedBlocks = new List<BlockOfPages>();
             expectedBlocks.AddRange([b1, b2, b3]);

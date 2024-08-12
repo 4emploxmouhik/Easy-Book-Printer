@@ -166,29 +166,18 @@ namespace EasyBookPrinter.Core
 
             int pageL = to;
             int pageR = from;
-            int middle = to - block.Capacity / 2;
-            int edge = middle;
-            SheetSide side = SheetSide.Top;
+            int middle = to / 2;
 
-            do
+            while (pageL != middle)
             {
-                block.Push(pageL, side);
-                block.Push(pageR, side);
+                block.Push(pageL, SheetSide.Top);
+                block.Push(pageR, SheetSide.Top);
+                block.Push(pageR + 1, SheetSide.Bottom);
+                block.Push(pageL - 1, SheetSide.Bottom);
 
                 pageL -= 2;
                 pageR += 2;
-
-                if (pageR == middle - 1)
-                {
-                    block.Push(pageL, side);
-                    block.Push(pageR, side);
-
-                    edge = to;
-                    pageL -= 2;
-                    pageR += 2;
-                    side = SheetSide.Bottom;
-                }
-            } while (pageR < edge);
+            }
 
             return block;
         }
@@ -225,7 +214,32 @@ namespace EasyBookPrinter.Core
 
         private BlockOfPages GetPrintOrder()
         {
-            return _bookBlocks.First().Join(_bookBlocks.GetRange(1, _bookBlocks.Count - 1));
+            BlockOfPages printOrder = _bookBlocks.First().Join(_bookBlocks.GetRange(1, _bookBlocks.Count - 1));
+
+            int[] bottomSide = printOrder.Pull(SheetSide.Bottom);
+            int index = 0,
+                pagesCount = bottomSide.Length,
+                pageL,
+                pageR;
+
+            while (index < bottomSide.Length / 2)
+            {
+                pageL = bottomSide[index];
+                pageR = bottomSide[index + 1];
+
+                bottomSide[index] = bottomSide[pagesCount - 2];
+                bottomSide[index + 1] = bottomSide[pagesCount - 1];
+
+                bottomSide[pagesCount - 2] = pageL;
+                bottomSide[pagesCount - 1] = pageR;
+
+                index += 2;
+                pagesCount -= 2;
+            }
+
+            printOrder.Push(bottomSide, SheetSide.Bottom);
+
+            return printOrder;
         }
 
         private PdfDocument CreatePrintingVersionOfBook()

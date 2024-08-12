@@ -70,6 +70,35 @@ namespace EasyBookPrinterTests.Core
         }
 
         [TestMethod]
+        public void PushOneArrayOfPagesToBottomSide()
+        {
+            int sheetCount = 2;
+            int[] expectedPages = [1, 2, 3, 4, 11, 12, 13, 14];
+
+            BlockOfPages blockOfPages = new BlockOfPages(sheetCount);
+            blockOfPages.Push([1, 2, 3, 4], [5, 6, 7, 8]);
+
+            blockOfPages.Push([11, 12, 13, 14], SheetSide.Bottom);
+
+            Assert.IsTrue(Compare(expectedPages, blockOfPages.Pull()));
+        }
+
+
+        [TestMethod]
+        public void PushOneSmallArrayOfPagesToTopSide()
+        {
+            int sheetCount = 2;
+            int[] expectedPages = [11, 12, 13, -1, 5, 6, 7, 8];
+
+            BlockOfPages blockOfPages = new BlockOfPages(sheetCount);
+            blockOfPages.Push([1, 2, 3, 4], [5, 6, 7, 8]);
+
+            blockOfPages.Push([11, 12, 13], SheetSide.Top);
+
+            Assert.IsTrue(Compare(expectedPages, blockOfPages.Pull()));
+        }
+
+        [TestMethod]
         public void ReplaceToEmptyPages()
         {
             int sheetCount = 2;
